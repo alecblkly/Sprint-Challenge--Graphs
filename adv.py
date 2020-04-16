@@ -36,12 +36,20 @@ traversal_path = []
 # Start with a DFT - Pick unexplored direction, travels to that direction and loops
 # Once a dead-end occurs, move to a room with an unexplored path
 
-# To find the shortest path to an unexplored room, utilize BFS
-# Convert room ids to n/s/e/w directions
+while len(traversal_path) < len(room_graph):
+    unvisited_rooms = {}
+    # Finding directions for exits of the current room
+    for directions in player.current_room.get_exits():
+        # Want to traverse to a new room - player.travel(direction)
+        # Want to store which room we moved to
+        print(directions)
+        # To find the shortest path to an unexplored room, utilize BFS
+        # Convert room ids to n/s/e/w directions
 
-# DFT is able to travel throughout the map, BFS is able to find the shortest path
-# Combining the DFT and BFS, would enable for traveling throughout the map on the shortest path
-# This would be sent into traversal_path (Return)
+        # DFT is able to travel throughout the map, BFS is able to find the shortest path
+        # Combining the DFT and BFS, would enable for traveling throughout the map on the shortest path
+        # This would be sent into traversal_path (Return)
+
 
 # TRAVERSAL TEST
 visited_rooms = set()
