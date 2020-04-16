@@ -5,6 +5,9 @@ from world import World
 import random
 from ast import literal_eval
 
+# Importing stack and queue
+from util import Stack, Queue
+
 # Load world
 world = World()
 
@@ -12,9 +15,9 @@ world = World()
 # You may uncomment the smaller graphs for development and testing purposes.
 # map_file = "maps/test_line.txt"
 # map_file = "maps/test_cross.txt"
-# map_file = "maps/test_loop.txt"
+map_file = "maps/test_loop.txt"
 # map_file = "maps/test_loop_fork.txt"
-map_file = "maps/main_maze.txt"
+# map_file = "maps/main_maze.txt"
 
 # Loads the map into a dictionary
 room_graph = literal_eval(open(map_file, "r").read())
@@ -29,6 +32,16 @@ player = Player(world.starting_room)
 # traversal_path = ['n', 'n']
 traversal_path = []
 
+# NOTE: Notes from spec
+# Start with a DFT - Pick unexplored direction, travels to that direction and loops
+# Once a dead-end occurs, move to a room with an unexplored path
+
+# To find the shortest path to an unexplored room, utilize BFS
+# Convert room ids to n/s/e/w directions
+
+# DFT is able to travel throughout the map, BFS is able to find the shortest path
+# Combining the DFT and BFS, would enable for traveling throughout the map on the shortest path
+# This would be sent into traversal_path (Return)
 
 # TRAVERSAL TEST
 visited_rooms = set()
